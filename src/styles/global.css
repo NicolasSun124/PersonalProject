@@ -70,6 +70,11 @@ body {
   background: var(--color-background);
 }
 
+#top {
+  position: absolute;
+  inset-block-start: 0;
+}
+
 body,
 h1,
 h2,
@@ -169,7 +174,85 @@ a:hover {
 }
 
 main.container {
+  padding-block-end: var(--space-8);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  inset-block-start: var(--space-3);
+  inset-inline-start: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-background);
+  background: var(--color-text);
+  border-radius: var(--radius-sm);
+  transform: translateY(calc(-100% - var(--space-4)));
+}
+
+.skip-link:focus-visible {
+  color: var(--color-background);
+  transform: translateY(0);
+}
+
+.site-header {
+  position: sticky;
+  z-index: 10;
+  inset-block-start: 0;
+  background: color-mix(in srgb, var(--color-background) 88%, transparent);
+  border-block-end: var(--border-width) solid var(--color-border);
+  backdrop-filter: blur(0.75rem);
+}
+
+.site-header__inner {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.site-header__wordmark,
+.site-header__nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-header__wordmark {
+  flex: none;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.site-header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--space-4), 3vw, var(--space-7));
+}
+
+.site-header__nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.site-header__wordmark:hover,
+.site-header__nav-link:hover {
+  color: var(--color-accent);
+}
+
+.section-placeholder {
+  min-height: calc(100vh - 4.5rem);
   padding-block: var(--space-8);
+  scroll-margin-block-start: 4.5rem;
+  border-block-end: var(--border-width) solid var(--color-border);
+}
+
+.section-placeholder:last-child {
+  border-block-end: 0;
 }
 
 /* Mobile: below 48rem */
@@ -178,14 +261,30 @@ main.container {
     --page-gutter: 1.25rem;
   }
 
-  main.container {
+  .site-header__inner {
+    min-height: 4rem;
+    gap: var(--space-4);
+  }
+
+  .site-header__nav-list {
+    gap: var(--space-4);
+  }
+
+  .site-header__nav-link {
+    min-height: 2.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .section-placeholder {
+    min-height: calc(100vh - 4rem);
     padding-block: var(--space-7);
+    scroll-margin-block-start: 4rem;
   }
 }
 
 /* Desktop: 64rem and above */
 @media (min-width: 64rem) {
-  main.container {
+  .section-placeholder {
     padding-block: var(--space-9);
   }
 }
