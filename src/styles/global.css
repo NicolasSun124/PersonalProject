@@ -1,3 +1,206 @@
+/* Design tokens */
+:root {
+  color-scheme: light;
+
+  --color-background: #f4f1ea;
+  --color-surface: #ebe7de;
+  --color-text: #171714;
+  --color-text-muted: #5f5e58;
+  --color-accent: #2457d6;
+  --color-accent-hover: #173da3;
+  --color-border: #cfcbc1;
+
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+
+  --text-sm: 0.875rem;
+  --text-base: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+  --text-lg: clamp(1.25rem, 1.08rem + 0.72vw, 1.75rem);
+  --text-xl: clamp(2.75rem, 1.65rem + 4.7vw, 6.5rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  --content-width: 78rem;
+  --page-gutter: clamp(1.25rem, 4vw, 4rem);
+  --border-width: 1px;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+
+  /* Reference values; media queries repeat these because custom properties
+     cannot be used in media-query conditions. */
+  --breakpoint-mobile: 48rem;
+  --breakpoint-desktop: 64rem;
+
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Minimal reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  min-width: 20rem;
+  min-height: 100vh;
   margin: 0;
+  background: var(--color-background);
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Shared type and interactive styles */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+h1 {
+  max-width: 12ch;
+  font-size: var(--text-xl);
+}
+
+h2 {
+  font-size: clamp(2rem, 1.45rem + 2.35vw, 3.875rem);
+}
+
+h3 {
+  font-size: var(--text-lg);
+  line-height: 1.15;
+}
+
+p {
+  max-width: 65ch;
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  transition: color 160ms ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--color-background);
+  background: var(--color-accent);
+}
+
+.container {
+  width: min(100% - (2 * var(--page-gutter)), var(--content-width));
+  margin-inline: auto;
+}
+
+main.container {
+  padding-block: var(--space-8);
+}
+
+/* Mobile: below 48rem */
+@media (max-width: 47.999rem) {
+  :root {
+    --page-gutter: 1.25rem;
+  }
+
+  main.container {
+    padding-block: var(--space-7);
+  }
+}
+
+/* Desktop: 64rem and above */
+@media (min-width: 64rem) {
+  main.container {
+    padding-block: var(--space-9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
