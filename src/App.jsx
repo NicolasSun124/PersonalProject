@@ -9,6 +9,8 @@ import projects from "./data/projects.js";
 
 function App() {
   useEffect(() => {
+    const pendingScrolls = [];
+
     const scrollToHash = () => {
       const targetId = decodeURIComponent(window.location.hash.slice(1));
 
@@ -17,14 +19,40 @@ function App() {
       }
 
       window.requestAnimationFrame(() => {
-        document.getElementById(targetId)?.scrollIntoView();
+        const target = document.getElementById(targetId);
+
+        if (!target) {
+          return;
+        }
+
+        const headerHeight =
+          document.querySelector(".site-header")?.getBoundingClientRect()
+            .height ?? 0;
+        const targetPosition =
+          target.getBoundingClientRect().top + window.scrollY - headerHeight - 24;
+
+        window.scrollTo({
+          top: Math.max(0, targetPosition),
+          left: 0,
+          behavior: "instant",
+        });
       });
     };
 
     scrollToHash();
-    window.addEventListener("hashchange", scrollToHash);
+    pendingScrolls.push(window.setTimeout(scrollToHash, 150));
+    pendingScrolls.push(window.setTimeout(scrollToHash, 600));
 
-    return () => window.removeEventListener("hashchange", scrollToHash);
+    window.addEventListener("hashchange", scrollToHash);
+    window.addEventListener("load", scrollToHash);
+    window.addEventListener("pageshow", scrollToHash);
+
+    return () => {
+      pendingScrolls.forEach(window.clearTimeout);
+      window.removeEventListener("hashchange", scrollToHash);
+      window.removeEventListener("load", scrollToHash);
+      window.removeEventListener("pageshow", scrollToHash);
+    };
   }, []);
 
   return (
