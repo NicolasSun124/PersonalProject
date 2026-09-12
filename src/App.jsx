@@ -1,6 +1,9 @@
 import Header from "./components/layout/Header.jsx";
 import ProjectFeature from "./components/projects/ProjectFeature.jsx";
+import About from "./components/sections/About.jsx";
+import Contact from "./components/sections/Contact.jsx";
 import Intro from "./components/sections/Intro.jsx";
+import projects from "./data/projects.js";
 
 function App() {
   return (
@@ -21,24 +24,16 @@ function App() {
             <h2 id="work-title">Selected work</h2>
           </header>
 
-          <ProjectFeature
-            title="Project title"
-            description="Add a concise explanation of the project, the problem it addresses, and what makes the result worth exploring."
-            role="Your role"
-            year="Project year"
-            videoSrc={null}
-            posterSrc="/images/project-placeholder.svg"
-            link={null}
-          />
+          <div className="work-section__projects">
+            {projects.map((project) => (
+              <ProjectFeature key={project.title} {...project} />
+            ))}
+          </div>
         </section>
 
-        <section id="about" className="section-placeholder" aria-labelledby="about-title">
-          <h2 id="about-title">About</h2>
-        </section>
+        <About />
 
-        <section id="contact" className="section-placeholder" aria-labelledby="contact-title">
-          <h2 id="contact-title">Contact</h2>
-        </section>
+        <Contact />
       </main>
     </>
   );

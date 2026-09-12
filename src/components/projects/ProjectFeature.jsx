@@ -1,24 +1,51 @@
+import { useEffect, useRef } from "react";
+
 function ProjectFeature({
   title,
   description,
-  role,
-  year,
   videoSrc,
   posterSrc,
   link,
 }) {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video || !("IntersectionObserver" in window)) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting && !video.paused) {
+          video.pause();
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(video);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <article className="project-feature">
       <div className="project-feature__media">
         <video
+          ref={videoRef}
           controls
           preload="metadata"
           poster={posterSrc}
+          playsInline
           aria-label={`${title} project video`}
         >
           {videoSrc && <source src={videoSrc} type="video/mp4" />}
-          Your browser does not support HTML video. You can view the project
-          poster instead.
+          <p>
+            Your browser does not support HTML video.{" "}
+            <a href={posterSrc}>View the project poster.</a>
+          </p>
         </video>
       </div>
 
@@ -28,21 +55,16 @@ function ProjectFeature({
           <p>{description}</p>
         </div>
 
-        <dl className="project-feature__meta">
-          <div>
-            <dt>Role</dt>
-            <dd>{role}</dd>
-          </div>
-          <div>
-            <dt>Year</dt>
-            <dd>{year}</dd>
-          </div>
-        </dl>
-
         {link && (
-          <a className="project-feature__link" href={link}>
-            View project
+          <a
+            className="project-feature__link"
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View on GitHub
             <span aria-hidden="true">↗</span>
+            <span className="visually-hidden"> (opens in a new tab)</span>
           </a>
         )}
       </div>

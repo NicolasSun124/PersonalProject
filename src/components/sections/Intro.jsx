@@ -11,11 +11,12 @@ function Intro() {
 
         <div className="intro__summary">
           <p>
-            I enjoy learning new technologies, solving challenging problems,
-            and turning ideas into practical software. I’m comfortable working
-            both independently and collaboratively, and I’m always looking for
-            opportunities to grow as a developer and gain real-world
-            experience.
+            Hi! I’m Nick, I’m a Computer Engineering student at the Univeristy
+            of Waterloo (More about this below). I love performing magic shows
+            for my friends and working out at the gym. In my life, gym and magic
+            included, I believe that its about always trying to improve, but not
+            trying to be perfect. I hope that lets you get to know me a little
+            more. Enjoy the rest of my works below!
           </p>
 
           <a className="intro__work-link" href="#work">

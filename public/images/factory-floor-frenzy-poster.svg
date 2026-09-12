@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title description">
+  <title id="title">Factory Floor Frenzy placeholder</title>
+  <desc id="description">A poster placeholder for the Factory Floor Frenzy project video.</desc>
+  <rect width="1600" height="1000" fill="#e8dfd7"/>
+  <g fill="none" stroke="#2457d6" stroke-width="16">
+    <rect x="185" y="210" width="480" height="430" rx="20"/>
+    <path d="M185 355h480M345 210v430M505 210v430" opacity=".4"/>
+    <circle cx="425" cy="425" r="92" fill="#2457d6" stroke="none"/>
+  </g>
+  <g fill="#171714">
+    <text x="790" y="450" font-family="Georgia, 'Times New Roman', serif" font-size="82">Factory Floor</text>
+    <text x="790" y="545" font-family="Georgia, 'Times New Roman', serif" font-size="82">Frenzy</text>
+    <text x="796" y="610" font-family="Arial, sans-serif" font-size="25" letter-spacing="4">JAVA · SWING · AWT</text>
+  </g>
+</svg>

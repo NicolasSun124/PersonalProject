@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title description">
+  <title id="title">GeoGuesser placeholder</title>
+  <desc id="description">A poster placeholder for the GeoGuesser project video.</desc>
+  <rect width="1600" height="1000" fill="#dfe4ea"/>
+  <path d="M0 260c260 115 400-90 670 20s430 290 930 80M0 570c300-110 480 170 760 30s510-90 840 70" fill="none" stroke="#2457d6" stroke-width="10" opacity=".25"/>
+  <path d="M445 232c-114 0-206 92-206 206 0 151 206 348 206 348s206-197 206-348c0-114-92-206-206-206Zm0 293a87 87 0 1 1 0-174 87 87 0 0 1 0 174Z" fill="#2457d6"/>
+  <g fill="#171714">
+    <text x="780" y="485" font-family="Georgia, 'Times New Roman', serif" font-size="100">GeoGuesser</text>
+    <text x="786" y="550" font-family="Arial, sans-serif" font-size="25" letter-spacing="4">REACT · FLASK · LEAFLET · SQLITE</text>
+  </g>
+</svg>

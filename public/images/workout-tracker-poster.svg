@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title description">
+  <title id="title">Workout Tracker for iOS placeholder</title>
+  <desc id="description">A poster placeholder for the Workout Tracker project video.</desc>
+  <rect width="1600" height="1000" fill="#dce5df"/>
+  <circle cx="1290" cy="140" r="330" fill="#2457d6" opacity=".12"/>
+  <path d="M190 500h120l55-130 105 270 75-180 48 92h150" fill="none" stroke="#2457d6" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#171714">
+    <text x="190" y="790" font-family="Georgia, 'Times New Roman', serif" font-size="82">Workout Tracker for iOS</text>
+    <text x="194" y="850" font-family="Arial, sans-serif" font-size="25" letter-spacing="4">SWIFTUI · CORE DATA · FLASK · POSTGRESQL</text>
+  </g>
+</svg>
