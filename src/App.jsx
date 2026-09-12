@@ -1,3 +1,4 @@
+import Footer from "./components/layout/Footer.jsx";
 import Header from "./components/layout/Header.jsx";
 import ProjectFeature from "./components/projects/ProjectFeature.jsx";
 import About from "./components/sections/About.jsx";
@@ -35,6 +36,8 @@ function App() {
 
         <Contact />
       </main>
+
+      <Footer />
     </>
   );
 }
