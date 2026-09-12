@@ -1,13 +1,24 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function ProjectFeature({
   title,
   description,
   videoSrc,
   posterSrc,
+  captionsSrc,
   link,
 }) {
   const videoRef = useRef(null);
+  const [hasVideoError, setHasVideoError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playVideo = () => {
+    const video = videoRef.current;
+
+    if (video) {
+      video.play().catch(() => setHasVideoError(true));
+    }
+  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -33,20 +44,51 @@ function ProjectFeature({
   return (
     <article className="project-feature">
       <div className="project-feature__media">
-        <video
-          ref={videoRef}
-          controls
-          preload="metadata"
-          poster={posterSrc}
-          playsInline
-          aria-label={`${title} project video`}
-        >
-          {videoSrc && <source src={videoSrc} type="video/mp4" />}
-          <p>
-            Your browser does not support HTML video.{" "}
-            <a href={posterSrc}>View the project poster.</a>
-          </p>
-        </video>
+        {hasVideoError ? (
+          <div className="project-feature__fallback">
+            <img src={posterSrc} alt={`${title} project poster`} />
+            <p>Video unavailable. View the project details and source code.</p>
+          </div>
+        ) : (
+          <video
+            ref={videoRef}
+            controls
+            preload="none"
+            poster={posterSrc}
+            playsInline
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
+            onError={() => setHasVideoError(true)}
+            aria-label={`${title} project video`}
+          >
+            {videoSrc && <source src={videoSrc} type="video/mp4" />}
+            {captionsSrc && (
+              <track
+                kind="captions"
+                src={captionsSrc}
+                srcLang="en"
+                label="English"
+                default
+              />
+            )}
+            <p>
+              Your browser does not support HTML video.{" "}
+              <a href={posterSrc}>View the project poster.</a>
+            </p>
+          </video>
+        )}
+
+        {!hasVideoError && !isPlaying && (
+          <button
+            className="project-feature__play"
+            type="button"
+            onClick={playVideo}
+            aria-label={`Play ${title} project video`}
+          >
+            <span aria-hidden="true">▶</span>
+          </button>
+        )}
       </div>
 
       <div className="project-feature__content">
