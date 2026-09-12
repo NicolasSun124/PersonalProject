@@ -1,4 +1,4 @@
-const portraitImage = null;
+const portraitImage = `${import.meta.env.BASE_URL}images/nicolas-sun-headshot.jpg`;
 
 function Intro() {
   return (
