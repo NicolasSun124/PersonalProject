@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 function ProjectFeature({
+  id,
   title,
   description,
   videoSrc,
@@ -42,7 +43,7 @@ function ProjectFeature({
   }, []);
 
   return (
-    <article className="project-feature">
+    <article id={id} className="project-feature">
       <div className="project-feature__media">
         {hasVideoError ? (
           <div className="project-feature__fallback">

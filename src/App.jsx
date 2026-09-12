@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Footer from "./components/layout/Footer.jsx";
 import Header from "./components/layout/Header.jsx";
 import ProjectFeature from "./components/projects/ProjectFeature.jsx";
@@ -7,6 +8,25 @@ import Intro from "./components/sections/Intro.jsx";
 import projects from "./data/projects.js";
 
 function App() {
+  useEffect(() => {
+    const scrollToHash = () => {
+      const targetId = decodeURIComponent(window.location.hash.slice(1));
+
+      if (!targetId) {
+        return;
+      }
+
+      window.requestAnimationFrame(() => {
+        document.getElementById(targetId)?.scrollIntoView();
+      });
+    };
+
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
+
   return (
     <>
       <a className="skip-link" href="#main-content">
@@ -27,7 +47,7 @@ function App() {
 
           <div className="work-section__projects">
             {projects.map((project) => (
-              <ProjectFeature key={project.title} {...project} />
+              <ProjectFeature key={project.id} {...project} />
             ))}
           </div>
         </section>

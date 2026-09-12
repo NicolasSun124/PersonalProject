@@ -2,6 +2,7 @@ const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 const projects = [
   {
+    id: "workout-tracker",
     title: "Workout Tracker for iOS",
     description:
       "A full-stack strength-training app with offline-first synchronization between Core Data and PostgreSQL, multi-device sessions, conflict resolution, Live Activities, and more than 45 automated tests.",
@@ -11,6 +12,7 @@ const projects = [
     link: "https://github.com/NicolasSun124/ApeXStrength",
   },
   {
+    id: "geoguesser",
     title: "GeoGuesser",
     description:
       "A full-stack React and Flask geography game using Leaflet and OpenStreetMap for interactive location guessing and distance-based scoring, with secure accounts, a persistent leaderboard, and 81 automated tests.",
@@ -20,6 +22,7 @@ const projects = [
     link: "https://github.com/NicolasSun124/GeoGuesser_SQLite",
   },
   {
+    id: "factory-floor-frenzy",
     title: "Factory Floor Frenzy",
     description:
       "A desktop game co-designed and built in Java with Swing and AWT as part of a three-person team, including core collision detection, movement mechanics, and an architecture shaped through iterative testing.",
