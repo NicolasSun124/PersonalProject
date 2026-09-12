@@ -16,7 +16,7 @@ const projects = [
     title: "GeoGuesser",
     description:
       "A full-stack React and Flask geography game using Leaflet and OpenStreetMap for interactive location guessing and distance-based scoring, with secure accounts, a persistent leaderboard, and 81 automated tests.",
-    videoSrc: assetPath("videos/apex-strength-demo.mp4"),
+    videoSrc: assetPath("videos/geoguesser-demo.mp4"),
     posterSrc: assetPath("images/geoguesser-poster.svg"),
     captionsSrc: null,
     link: "https://github.com/NicolasSun124/GeoGuesser_SQLite",
@@ -27,7 +27,7 @@ const projects = [
     title: "Factory Floor Frenzy",
     description:
       "A desktop game co-designed and built in Java with Swing and AWT as part of a three-person team, including core collision detection, movement mechanics, and an architecture shaped through iterative testing.",
-    videoSrc: assetPath("videos/apex-strength-demo.mp4"),
+    videoSrc: assetPath("videos/factory-floor-frenzy-demo.mp4"),
     posterSrc: assetPath("images/factory-floor-frenzy-poster.svg"),
     captionsSrc: null,
     link: "https://github.com/NicolasSun124/factory-floor-frenzy",
