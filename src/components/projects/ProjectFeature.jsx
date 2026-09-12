@@ -8,6 +8,7 @@ function ProjectFeature({
   posterSrc,
   captionsSrc,
   link,
+  liveLink,
 }) {
   const videoRef = useRef(null);
   const [hasVideoError, setHasVideoError] = useState(false);
@@ -98,18 +99,33 @@ function ProjectFeature({
           <p>{description}</p>
         </div>
 
-        {link && (
-          <a
-            className="project-feature__link"
-            href={link}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View on GitHub
-            <span aria-hidden="true">↗</span>
-            <span className="visually-hidden"> (opens in a new tab)</span>
-          </a>
-        )}
+        <div className="project-feature__links">
+          {link && (
+            <a
+              className="project-feature__link"
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View on GitHub
+              <span aria-hidden="true">↗</span>
+              <span className="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          )}
+
+          {liveLink && (
+            <a
+              className="project-feature__link"
+              href={liveLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View live site
+              <span aria-hidden="true">↗</span>
+              <span className="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );
