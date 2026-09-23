@@ -2,6 +2,8 @@ const capabilities = [
   "Full-stack applications",
   "iOS development",
   "API and database design",
+  "GenAI development and integration",
+  "Machine learning",
   "Automated testing",
 ];
 
