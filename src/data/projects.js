@@ -20,7 +20,7 @@ const projects = [
     posterSrc: assetPath("images/geoguesser-poster.svg"),
     captionsSrc: null,
     link: "https://github.com/NicolasSun124/GeoGuesser_SQLite",
-    liveLink: "https://geoguesser-sqlite-mc4c.onrender.com/",
+    liveLink: "https://geoguesser-9967.onrender.com",
   },
   {
     id: "factory-floor-frenzy",
